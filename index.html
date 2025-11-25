@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laravel Lifecycle Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cyber: {
+                black: '#0a0a0a', /* Base black */
+                dark: '#141414',
+                gray: '#222222',
+                red: '#ff1f55', /* Brighter, more vivid red */
+                dimRed: '#800020', /* Brighter deep red */
+                accent: '#ff4d79',
+                bright: '#ffb3c6',
+              }
+            },
+            fontFamily: {
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(to right, #333333 1px, transparent 1px), linear-gradient(to bottom, #333333 1px, transparent 1px)",
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+              'scanline': 'scanline 8s linear infinite',
+              'glitch': 'glitch 1s linear infinite',
+              'typing': 'typing 3.5s steps(40, end)',
+              'blink': 'blink .75s step-end infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'dash': 'dash 1s linear infinite',
+              'draw': 'draw 1.5s ease-out forwards',
+              'flow': 'flow 1s linear infinite',
+            },
+            keyframes: {
+              glow: {
+                '0%': { boxShadow: '0 0 5px #800020' },
+                '100%': { boxShadow: '0 0 20px #ff1f55, 0 0 10px #ff1f55' },
+              },
+              scanline: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              glitch: {
+                '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                '62%': { transform: 'translate(0,0) skew(5deg)' },
+              },
+              blink: {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '0' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-5px)' },
+              },
+              dash: {
+                'to': { strokeDashoffset: '-20' },
+              },
+              draw: {
+                '0%': { strokeDashoffset: '100', opacity: '0' },
+                '100%': { strokeDashoffset: '0', opacity: '1' },
+              },
+              flow: {
+                '0%': { strokeDashoffset: '24' },
+                '100%': { strokeDashoffset: '0' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0a0a0a;
+        color: #f0f0f0;
+        overflow-x: hidden;
+      }
+      
+      /* CRT Overlay Effects - Reduced intensity for brightness */
+      .crt-overlay {
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+      
+      .vignette {
+        background: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0.4) 100%);
+        pointer-events: none;
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+      
+      .clip-tech-card {
+        clip-path: polygon(
+          0 0, 
+          100% 0, 
+          100% calc(100% - 20px), 
+          calc(100% - 20px) 100%, 
+          0 100%
+        );
+      }
+      
+      .clip-tech-card-border {
+        clip-path: polygon(
+          0 0, 
+          100% 0, 
+          100% calc(100% - 21px), 
+          calc(100% - 21px) 100%, 
+          0 100%
+        );
+      }
+
+      .glitch-text:hover {
+        animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

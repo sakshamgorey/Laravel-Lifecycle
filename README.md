@@ -1,11 +1,29 @@
-<div align="center">
+# Laravel Lifecycle Visualizer
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A minimalist, cyberpunk-themed interactive web application that visualizes the Laravel Request Lifecycle. Designed to educate developers on the framework's internal flow with a high-fidelity, futuristic UI.
 
-  <h1>Built with AI Studio</h2>
+## Features
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Interactive Flow**: Visualizes the 12 key stages of the Laravel request lifecycle.
+- **Cyberpunk Aesthetic**: High-contrast, futuristic design with custom animations, scanlines, and neon glow effects.
+- **Snake Layout**: Responsive grid system that adapts from a simple list on mobile to a complex circuit-board "snake" flow on desktop.
+- **Zero Dependencies**: Built with React and Tailwind CSS, requiring no external backend or heavy libraries.
+- **Boot Sequence**: Simulated bios/kernel loading animation on startup.
+- **System Log**: Interactive terminal footer that reacts to user hover events.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Tech Stack
 
-</div>
+- **Frontend**: React 19, TypeScript
+- **Styling**: Tailwind CSS (with custom animations and keyframes)
+- **Icons**: Lucide React
+- **Fonts**: JetBrains Mono
+
+## Getting Started
+
+1.  Clone the repository.
+2.  Install dependencies: `npm install`
+3.  Run the development server: `npm start`
+
+## License
+
+MIT License. Built for the Laravel Community.

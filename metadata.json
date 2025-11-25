@@ -1,0 +1,5 @@
+{
+  "name": "Laravel Lifecycle Visualizer",
+  "description": "A minimalist, cyberpunk-themed interactive visualization of the Laravel request lifecycle.",
+  "requestFramePermissions": []
+}
